@@ -1,0 +1,213 @@
+:javascript
+  $(function(){
+    $('a[href^="#"]').click(function(){
+      var speed = 500;
+      var href= $(this).attr("href");
+      var target = $(href == "#" || href == "" ? 'html' : href);
+      var position = target.offset().top;
+      $("html, body").animate({scrollTop:position}, speed, "swing");
+      return false;
+    });
+  });
+  function onClickMenu(){
+    var toggleBtn = document.getElementById("start-button");
+    var toggleBtnClass = toggleBtn.getAttribute("class");
+
+    if (toggleBtnClass == "open") {
+
+      toggleBtn.classList.remove('open');
+
+      toggleBtn.classList.add('close');
+
+      document.getElementById('start-open').style.display="none";
+
+      document.getElementById('start-close').style.display="block";
+
+    } else {
+
+    toggleBtn.classList.remove('close');
+    toggleBtn.classList.add('open');
+    document.getElementById('start-open').style.display="block";
+    document.getElementById('start-close').style.display="none";
+
+    }
+  }
+
+-# ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーhtml
+
+.wrapper
+  .header
+    .header-body
+      .header-top
+        .header-logo
+          = link_to "#", class: "header-logo-link" do
+            = image_tag 'header-logo.png', alt: 'header-logo-image', height: '40px', width: '310px', class: 'header-logo-image'
+        .tasks-search
+          = form_tag( "#", method: :get ) do
+            = text_field_tag :name, "", class: "tasks-search-text", name: "name", placeholder: 'SEARCH TASK？'
+            = button_tag "", class: "tasks-search-btn" do
+              = image_tag 'search-icon.png', alt: 'search-icon', height: '42px', width: '44px', class: 'search-icon'
+  %ul.snip1155
+    %li
+      = link_to "TODAY'S TASK", "#"
+    %li
+      = link_to "TOMMOROW'S TASK", "#2"
+    %li
+      = link_to "ALL TASK", "#3"
+    %li
+      = link_to "COMPLETED TASK", "#4"
+    %li
+      = link_to "MY PAGE", "#"
+
+  .tasks-body
+
+    .various-tasks
+      %h4.theme
+        TODAY'S TASK
+      = link_to "CHECK MORE...", "#", class: "check-more"
+      .box
+        = link_to "#", class: "tasks-show-link" do
+          .text
+            %h3.heading TASK1
+          .tasks-detail
+            .pict
+              = image_tag 'task-image.jpeg', class: "task-image"
+            .tasks-level
+              %span.tasks-level-count
+                LEVEL ＊
+            .tasks-priority
+              %span.tasks-priority-count
+                PRIORITY ＊＊＊
+            .tasks-category
+              %span.tasks-category-count
+                BUSINESS
+            .tasks-limit
+              %span.tasks-limit-count
+                LIMIT 3 hours left
+        .button-nav
+          %button{id: "start-button", class:"open", onclick: "onClickMenu()"}
+            %span{id: "start-open", class: "start-open-button", style:"display: block"} START
+            %span{id: "start-close", class: "start-close-button", style:"display: none"} DOING
+          %button{id: "complete", class:"complete", onclick: "onClickMenu()"}
+            %span{id: "complete-button ", class: "complete-button ", style:"display: block"} COMPLETE
+
+
+    .various-tasks
+      %h4.theme{id: "2"}
+        TOMMOROW'S TASK
+      = link_to "CHECK MORE...", "#", class: "check-more"
+      .box
+        = link_to "#", class: "tasks-show-link" do
+          .text
+            %h3.heading TASK2
+          .tasks-detail
+            .pict
+              = image_tag 'task-image.jpeg', class: "task-image"
+            .tasks-level
+              %span.tasks-level-count
+                LEVEL ＊
+            .tasks-priority
+              %span.tasks-priority-count
+                PRIORITY ＊＊＊
+            .tasks-category
+              %span.tasks-category-count
+                BUSINESS
+            .tasks-limit
+              %span.tasks-limit-count
+                LIMIT 3 hours left
+        .button-nav
+          %button{id: "start-button", class:"open", onclick: "onClickMenu()"}
+            %span{id: "start-open", class: "start-open-button", style:"display: block"} START
+            %span{id: "start-close", class: "start-close-button", style:"display: none"} DOING
+          %button{id: "complete", class:"complete", onclick: "onClickMenu()"}
+            %span{id: "complete-button ", class: "complete-button ", style:"display: block"} COMPLETE
+
+
+    .various-tasks
+      %h4.theme{id: "3"}
+        ALL TASK
+      = link_to "CHECK MORE...", "#", class: "check-more"
+
+      - @all_tasks.each do |task|
+        .box
+          = link_to "#", class: "tasks-show-link" do
+            .text
+              %h3.heading #{task.name}
+            .tasks-detail
+              .pict
+                = image_tag 'task-image.jpeg', class: "task-image"
+              .tasks-level
+                %span.tasks-level-count
+                  LEVEL #{task.level}
+              .tasks-priority
+                %span.tasks-priority-count
+                  PRIORITY #{task.priority}
+              .tasks-category
+                %span.tasks-category-count
+                  BUSINESS
+              .tasks-limit
+                %span.tasks-limit-count
+                  LIMIT #{task.limit_date}
+          .button-nav
+            %button{id: "start-button", class:"open", onclick: "onClickMenu()"}
+              %span{id: "start-open", class: "start-open-button", style:"display: block"} START
+              %span{id: "start-close", class: "start-close-button", style:"display: none"} DOING
+            %button{id: "complete", class:"complete", onclick: "onClickMenu()"}
+              %span{id: "complete-button ", class: "complete-button ", style:"display: block"} COMPLETE
+
+      -# .box
+      -#   = link_to "#", class: "tasks-show-link" do
+      -#     .text
+      -#       %h3.heading TASK2
+      -#     .tasks-detail
+      -#       .pict
+      -#         = image_tag 'task-image.jpeg', class: "task-image"
+      -#       .tasks-level
+      -#         %span.tasks-level-count
+      -#           LEVEL ＊
+      -#       .tasks-priority
+      -#         %span.tasks-priority-count
+      -#           PRIORITY ＊＊＊
+      -#       .tasks-category
+      -#         %span.tasks-category-count
+      -#           BUSINESS
+      -#       .tasks-limit
+      -#         %span.tasks-limit-count
+      -#           LIMIT 3 hours left
+      -#   .button-nav
+      -#     %button{id: "start-button", class:"open", onclick: "onClickMenu()"}
+      -#       %span{id: "start-open", class: "start-open-button", style:"display: block"} START
+      -#       %span{id: "start-close", class: "start-close-button", style:"display: none"} DOING
+      -#     %button{id: "complete", class:"complete", onclick: "onClickMenu()"}
+      -#       %span{id: "complete-button ", class: "complete-button ", style:"display: block"} COMPLETE
+
+
+    .various-tasks
+      %h4.theme{id: "4"}
+        COMPLETED TASK
+      = link_to "CHECK MORE...", "#", class: "check-more"
+      .box
+        = link_to "#", class: "tasks-show-link" do
+          .text
+            %h3.heading TASK4
+          .tasks-detail
+            .pict
+              = image_tag 'task-image.jpeg', class: "task-image"
+            .tasks-level
+              %span.tasks-level-count
+                LEVEL ＊
+            .tasks-priority
+              %span.tasks-priority-count
+                PRIORITY ＊＊＊
+            .tasks-category
+              %span.tasks-category-count
+                BUSINESS
+            .tasks-limit
+              %span.tasks-limit-count
+                LIMIT 3 hours left
+
+  .add-tasks
+    = link_to new_task_path ,class: "add-tasks-link" do
+      = image_tag 'add-tasks.png', alt: '', height: '95px', width: '95px', class: 'add-tasks-image'
+  .footer
+    .footer-body
