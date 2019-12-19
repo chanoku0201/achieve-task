@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'tasks#index'
 
   resources :tasks do
-    patch :toggle_status
+    patch :change_status
+    patch :change_completed
   end
 end

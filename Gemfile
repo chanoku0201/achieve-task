@@ -57,3 +57,4 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'pry-rails'
 gem "font-awesome-rails"
+gem "bulma-rails", "~> 0.8.0"
