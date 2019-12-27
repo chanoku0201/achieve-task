@@ -1,109 +1,103 @@
 .wrapper
-  .header
-    .header-body
-      .header-top
-        .header-logo
-          = link_to "#", class: "header-logo-link" do
-            = image_tag 'header-logo.png', alt: 'header-logo-image', height: '40px', width: '310px', class: 'header-logo-image'
-        .tasks-search
-          = form_tag( "#", method: :get ) do
-            = text_field_tag :name, "", class: "tasks-search-text", name: "name", placeholder: 'SEARCH TASK？'
-            = button_tag "", class: "tasks-search-btn" do
-              = image_tag 'search-icon.png', alt: 'search-icon', height: '42px', width: '44px', class: 'search-icon'
-  %ul.snip1155
-    %li
-      = link_to "TODAY'S TASK", "#"
-    %li
-      = link_to "TOMMOROW'S TASK", "#2"
-    %li
-      = link_to "ALL TASK", "#3"
-    %li
-      = link_to "COMPLETED TASK", "#4"
-    %li
-      = link_to "MY PAGE", "#"
+  - if user_signed_in?
+    = render partial: 'shared/myheader'
+    %ul.snip1155
+      %li
+        = link_to "TODAY'S TASK", "#"
+      %li
+        = link_to "TOMMOROW'S TASK", "#2"
+      %li
+        = link_to "ALL TASK", "#3"
+      %li
+        = link_to "COMPLETED TASK", "#4"
+      %li
+        = link_to "MY PAGE", "/users/#{current_user.id}"
 
-  .tasks-body
+    .tasks-body
 
-    .various-tasks
-      %h4.theme
-        TODAY'S TASK
-      = link_to "CHECK MORE...", "#", class: "check-more"
+      .various-tasks
+        %h4.theme
+          TODAY'S TASK
+        = link_to "CHECK MORE...", "#", class: "check-more"
 
 
 
-    .various-tasks
-      %h4.theme{id: "2"}
-        TOMMOROW'S TASK
-      = link_to "CHECK MORE...", "#", class: "check-more"
+      .various-tasks
+        %h4.theme{id: "2"}
+          TOMMOROW'S TASK
+        = link_to "CHECK MORE...", "#", class: "check-more"
 
-    .various-tasks
-      %h4.theme{id: "3"}
-        ALL TASK
-      = link_to "CHECK MORE...", "#", class: "check-more"
+      .various-tasks
+        %h4.theme{id: "3"}
+          ALL TASK
+        = link_to "CHECK MORE...", "#", class: "check-more"
 
-      - @all_tasks.each do |task|
-        .box
-          = link_to "#", class: "tasks-show-link" do
-            .text
-              %h3.heading
-                #{task.name}
-            .tasks-detail
-              .pict
-                = image_tag 'task-image.jpeg', class: "task-image"
-              .tasks-level
-                %span.tasks-level-count
-                  LEVEL #{task.level}
-              .tasks-priority
-                %span.tasks-priority-count
-                  PRIORITY #{task.priority}
-              .tasks-category
-                %span.tasks-category-count
-                  #{task.genre.name}
-              .tasks-limit
-                %span.tasks-limit-count
-                  LIMIT #{task.limit_date}
-          .button-nav
-            - if task.status == "START"
-              %button{class:"start", id: "start"}
-                = link_to task.status, task_change_status_path(task), class: "start-open-button", id: "start-doing", style:"display: block", method: :patch
-            - else
-              %button{class:"start", id: "start"}
-                = link_to task.status, task_change_status_path(task), class: "doing-open-button", id: "start-doing", style:"display: block", method: :patch
-            %button{class:"complete"}
-              = link_to 'COMPLETE', task_change_completed_path(task), class: "complete-button ", style:"display: block", method: :patch
+        - @all_tasks.each do |task|
+          .box
+            = link_to "#", class: "tasks-show-link" do
+              .text
+                %h3.heading
+                  #{task.name}
+              .tasks-detail
+                .pict
+                  = image_tag 'task-image.jpeg', class: "task-image"
+                .tasks-level
+                  %span.tasks-level-count
+                    LEVEL #{task.level}
+                .tasks-priority
+                  %span.tasks-priority-count
+                    PRIORITY #{task.priority}
+                .tasks-category
+                  %span.tasks-category-count
+                    #{task.genre.name}
+                .tasks-limit
+                  %span.tasks-limit-count
+                    LIMIT #{task.limit_date}
+            .button-nav
+              - if task.status == "START"
+                %button{class:"start", id: "start"}
+                  = link_to task.status, task_change_status_path(task), class: "start-open-button", id: "start-doing", style:"display: block", method: :patch
+              - else
+                %button{class:"start", id: "start"}
+                  = link_to task.status, task_change_status_path(task), class: "doing-open-button", id: "start-doing", style:"display: block", method: :patch
+              %button{class:"complete"}
+                = link_to 'COMPLETE', task_change_completed_path(task), class: "complete-button ", style:"display: block", method: :patch
 
-    .various-tasks
-      %h4.theme{id: "4"}
-        COMPLETED TASK
-      = link_to "CHECK MORE...", "#", class: "check-more"
+      .various-tasks
+        %h4.theme{id: "4"}
+          COMPLETED TASK
+        = link_to "CHECK MORE...", "#", class: "check-more"
 
-      - @complete_tasks.each do |task|
-        .box
-          = link_to "#", class: "tasks-show-link" do
-            .text
-              %h3.heading #{task.name}
-            .tasks-detail
-              .pict
-                = image_tag 'task-image.jpeg', class: "task-image"
-              .tasks-level
-                %span.tasks-level-count
-                  LEVEL #{task.level}
-              .tasks-priority
-                %span.tasks-priority-count
-                  PRIORITY #{task.priority}
-              .tasks-category
-                %span.tasks-category-count
-                  #{task.genre.name}
-              .tasks-limit
-                %span.tasks-limit-count
-                  LIMIT #{task.limit_date}
-          .button-nav
-            %button{class: "delete"}
-              = link_to "DELETE", task_path(task), class: "delete-task", style: "display: block", method: :delete
-  .add-tasks
-    = link_to new_task_path ,class: "add-tasks-link" do
-      = image_tag 'add-tasks.png', alt: '', height: '95px', width: '95px', class: 'add-tasks-image'
-  .footer
-    .footer-body
+        - @complete_tasks.each do |task|
+          .box
+            = link_to "#", class: "tasks-show-link" do
+              .text
+                %h3.heading #{task.name}
+              .tasks-detail
+                .pict
+                  = image_tag 'task-image.jpeg', class: "task-image"
+                .tasks-level
+                  %span.tasks-level-count
+                    LEVEL #{task.level}
+                .tasks-priority
+                  %span.tasks-priority-count
+                    PRIORITY #{task.priority}
+                .tasks-category
+                  %span.tasks-category-count
+                    #{task.genre.name}
+                .tasks-limit
+                  %span.tasks-limit-count
+                    LIMIT #{task.limit_date}
+            .button-nav
+              %button{class: "delete"}
+                = link_to "DELETE", task_path(task), class: "delete-task", style: "display: block", method: :delete
+    .add-tasks
+      = link_to new_task_path ,class: "add-tasks-link" do
+        = image_tag 'add-tasks.png', alt: '', height: '95px', width: '95px', class: 'add-tasks-image'
+    = render partial: "shared/footer"
+  - else
+    dddddddddd
+
+
 
 

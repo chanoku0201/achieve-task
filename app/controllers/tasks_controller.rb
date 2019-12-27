@@ -5,8 +5,8 @@ class TasksController < ApplicationController
   def index
     # @todays_tasks
     # @tommorows_tasks
-    @all_tasks = Task.all.order('limit_date').where.not(status:2).includes(:genre).limit(7)
-    @complete_tasks = Task.all.where(status: 2).includes(:genre).limit(7)
+    @all_tasks = Task.all.where(user_id: current_user.id).order('limit_date').where.not(status:2).includes(:genre).limit(7)
+    @complete_tasks = Task.all.where(user_id: current_user.id).where(status: 2).includes(:genre).limit(7)
 
   end
 

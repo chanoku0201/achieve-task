@@ -1,0 +1,11 @@
+.header
+  .header-body
+    .header-top
+      .header-logo
+        = link_to root_path, class: "header-logo-link" do
+          = image_tag 'header-logo.png', alt: 'header-logo-image', height: '40px', width: '310px', class: 'header-logo-image'
+      .tasks-search
+        = form_tag( "#", method: :get ) do
+          = text_field_tag :name, "", class: "tasks-search-text", name: "name", placeholder: 'SEARCH TASK'
+          = button_tag "", class: "tasks-search-btn" do
+            = image_tag 'search-icon.png', alt: 'search-icon', height: '42px', width: '44px', class: 'search-icon'

@@ -1,0 +1,12 @@
+.footer {
+  background-image: image-url("footer-image-new.jpg");
+  background-position: center;
+  background-size: cover;
+  .footer-body {
+    width: 850px;
+    height: 500px;
+    margin: 0px auto;
+    justify-content: space-between;
+    position: relative;
+  }
+}

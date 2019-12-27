@@ -3,99 +3,6 @@
 }
 .wrapper {
   background-color: #dcdcdc;
-  .header {
-    z-index: 1;
-    position: sticky;
-    top: 0;
-    height: 85px;
-    margin-bottom: 20px;
-    background-image: image-url("header-image-new.jpeg");
-    background-position: center;
-    background-size: cover;
-    box-shadow: 8px 8px 8px 8px rgba(0,0,0,.3);
-    .header-body {
-      width: 1020px;
-      height: 85px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: 20px;
-      .header-top {
-        display: flex;
-        justify-content: space-between;
-        .header-logo {
-          margin-right: 45px;
-          height: 40px;
-          display: flex;
-          &-link {
-            .header-logo-image {
-              border-style: solid;
-              border-width: 1px;
-              border-color: black;
-              box-shadow: 0 0 15px rgba(0,0,0,.3);
-            }
-          }
-        }
-        .tasks-search {
-          position: relative;
-          width: 100%;
-          .tasks-search-text {
-            position: relative;
-            height: 40px;
-            padding: 0px 50px 0px 10px;
-            background-color: whitesmoke;
-            box-shadow: inset 0 0 15px rgba(0,0,0,.3);
-            border-width: 1px;
-            border-color: black;
-            border-style: solid;
-            width: 100%;
-          }
-          .tasks-search-btn {
-            cursor: pointer;
-            height: 40px;
-            position: absolute;
-            right: 0px;
-            width: 40px;
-            top: 0px;
-            .search-icon {
-              display: inline-block;
-              position: relative;
-              border-radius: 3px;
-              box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.5);
-            }
-            .search-icon:before {
-              border-radius: 3px;
-              content: " ";
-              position: absolute;
-              top: -5px;
-              right: -1px;
-              width: 0;
-              height: 0;
-              border-width: 0 6px 6px 0px;
-              border-bottom-color: #FFF;
-            }
-            .search-icon:after {
-              content: " ";
-              position: absolute;
-              bottom: -1px;
-              left: -5px;
-              width: 0;
-              height: 0;
-              border-width: 0px 6px 6px 0px;
-              border-color: #FFF;
-            }
-            .search-icon:active {
-              border:none;
-              -webkit-transform: translate(-2px,-2px);
-              transform: translate(-2px,-2px);
-            }
-            .search-icon:active:after, .search-icon:active:before {
-              content: none;
-            }
-          }
-        }
-      }
-    }
-  }
   position: sticky;
   @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
   .snip1155 {
@@ -378,18 +285,6 @@
         margin-top: 22px;
         font-size: 60px;
       }
-    }
-  }
-  .footer {
-    background-image: image-url("footer-image-new.jpg");
-    background-position: center;
-    background-size: cover;
-    .footer-body {
-      width: 850px;
-      height: 500px;
-      margin: 0px auto;
-      justify-content: space-between;
-      position: relative;
     }
   }
 }

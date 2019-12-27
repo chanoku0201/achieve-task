@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :genre
+  belongs_to :user
   # データベース上でnot nullとしたカラムはモデル上でもバリデーション設定しておいた
   validates :name, :text, :level, :priority, :genre_id, presence: true
   # statusカラムの番号を3つの文字列状態として紐づけて定義

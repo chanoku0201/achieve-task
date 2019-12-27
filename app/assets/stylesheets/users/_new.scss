@@ -1,0 +1,36 @@
+// body {
+//   background-color: #dcdcdc;
+// }
+.sign-up-container {
+  position: relative;
+  height: 100%;
+  &__body {
+    background-image: image-url("footer-image-new.jpg");
+    background-position: center;
+    background-size: cover;
+    display: block;
+    &__box {
+      background-color: whitesmoke;
+      box-shadow: inset 0 0 15px 15px gray;
+      opacity: 0.8;
+      height: 700px;
+      width: 650px;
+      margin: 0 auto;
+      .sign-up-font {
+        text-align: center;
+        padding: 30px;
+        margin-bottom: 15px;
+        border-bottom: 1.5px solid #a99e93;
+      }
+      .new-user {
+        padding: 50px 100px;
+        .sign-up-main {
+          margin: 0 auto;
+          .form-group {
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+  }
+}

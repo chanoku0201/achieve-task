@@ -1,0 +1,27 @@
+.sign-up-container
+  = render partial: "shared/header"
+  .sign-up-container__body
+    .sign-up-container__body__box
+      %h2.sign-up-font Sign up
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'new-user'}) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .sign-up-main
+          .form-group
+            = f.label :nickname
+            %br/
+            = f.text_field :nickname, autofocus: true, maxlength: "10", placeholder: "max10", class: "input-default"
+          .form-group
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Adress", class: "input-default"
+          .form-group
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "new-password", placeholder: "Create Password max6", class: "input-default"
+          .form-group
+            = f.label :password_confirmation
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "input-default"
+          .actions
+            = f.submit "Sign up"
+        = render "devise/shared/links"
