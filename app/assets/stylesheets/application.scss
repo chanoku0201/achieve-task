@@ -3,4 +3,11 @@
 @import "shared/myheader";
 @import "shared/header";
 @import "shared/footer";
+@import "shared/myselect";
+@import "shared/signselect";
+@import "shared/links";
+@import "shared/error_messages";
 @import "users/new";
+@import "users/show";
+@import "users/logout";
+@import "sessions/new";

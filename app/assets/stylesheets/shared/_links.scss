@@ -1,0 +1,37 @@
+.sign-in-session-link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #474a4d;
+  border-radius: 4px;
+  border: 2px solid #dddcd6;
+  padding: 11.8px 14px;
+  &:hover {
+    border-radius: 4px;
+    border: 2px solid #544a47;
+    padding: 11.8px 14px;
+  }
+}
+.sign-up-registration-link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #474a4d;
+  border-radius: 4px;
+  border: 2px solid #dddcd6;
+  padding: 11.8px 14px;
+  &:hover {
+    border-radius: 4px;
+    border: 2px solid #544a47;
+    padding: 11.8px 14px;
+  }
+}
+.forgot-password {
+  margin: 40px 40px;
+  &-link {
+    text-decoration: none;
+    color: #383c3c;
+    &:hover {
+      color: #b94047;
+    }
+  }
+}
+

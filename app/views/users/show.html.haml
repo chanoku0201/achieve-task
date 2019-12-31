@@ -1,3 +1,13 @@
-= render partial: 'shared/myheader'
+.mypage-container
+  = render partial: 'shared/myheader'
+  = render partial: 'shared/myselect'
+  .mypage-body
+    .mypage-body__box
+      .mypage-body__box__image
+        .mypage-body__box__image__block
+          = image_tag 'defoult-icon.jpg', alt: '', height: '150px', width: '150px', class: 'mypage-body__box__image__block__icon'
+        %h2.my-nickname
+          #{current_user.nickname}
+        %h3.my-lank
+          Lank 500
 
-= render partial: "shared/footer"

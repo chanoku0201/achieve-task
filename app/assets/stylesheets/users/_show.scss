@@ -1,0 +1,46 @@
+.mypage-container {
+  @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+  .mypage-body {
+    display: block;
+    background-image: image-url("footer-image-new.jpg");
+    background-position: center;
+    background-size: cover;
+    &__box {
+      background-color: whitesmoke;
+      box-shadow: inset 0 0 15px 15px gray;
+      opacity: 0.95;
+      height: 700px;
+      width: 650px;
+      margin: 0 auto;
+      &__image {
+        padding-top: 40px;
+        &__block {
+          height: 150px;
+          width: 150px;
+          margin: 0 auto;
+          &__icon {
+            background-size: cover;
+            border-radius: 50%;
+            border: ridge 6px #946243;
+          }
+        }
+        .my-nickname {
+          background-color: #b28c6e;
+          box-shadow: 0 0 20px 10px gray;
+          font-size: 19px;
+          font-weight: bold;
+          text-align: center;
+          margin: 10px 8px;
+        }
+        .my-lank {
+          background-color: #a58f86;
+          box-shadow: 0 0 20px 8px #856859;
+          font-size: 17px;
+          font-weight: bold;
+          text-align: center;
+          margin: 10px 8px;
+        }
+      }
+    }
+  }
+}

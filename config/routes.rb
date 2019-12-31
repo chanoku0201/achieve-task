@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'tasks#index'
 
+  resources :users do
+    collection do
+      get 'logout'
+    end
+  end
+
   resources :tasks do
     patch :change_status
     patch :change_completed
   end
-  get 'users/:id' =>  'users#show'
 end

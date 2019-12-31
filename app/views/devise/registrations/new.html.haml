@@ -1,5 +1,6 @@
 .sign-up-container
   = render partial: "shared/header"
+  = render partial: "shared/signselect"
   .sign-up-container__body
     .sign-up-container__body__box
       %h2.sign-up-font Sign up
@@ -9,19 +10,20 @@
           .form-group
             = f.label :nickname
             %br/
-            = f.text_field :nickname, autofocus: true, maxlength: "10", placeholder: "max10", class: "input-default"
+            = f.text_field :nickname, autofocus: true, maxlength: "10", placeholder: "max10", class: "input-default-name"
           .form-group
             = f.label :email
             %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Adress", class: "input-default"
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Adress", class: "input-default-another"
           .form-group
             = f.label :password
             %br/
-            = f.password_field :password, autocomplete: "new-password", placeholder: "Create Password max6", class: "input-default"
+            = f.password_field :password, autocomplete: "new-password", placeholder: "Create Password min6", class: "input-default-another"
           .form-group
             = f.label :password_confirmation
             %br/
-            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "input-default"
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "input-default-another"
           .actions
-            = f.submit "Sign up"
-        = render "devise/shared/links"
+            %button{class: "actions-sign-up"}
+              = f.submit "Sign up", class: "actions-sign-up-button"
+            = render "devise/shared/links"

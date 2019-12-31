@@ -1,0 +1,20 @@
+:javascript
+  $(function(){
+    $('.my-select li a').each(function(){
+      var $href = $(this).attr('href');
+      if(location.href.match($href)) {
+        $(this).parent().addClass('current');
+      } else {
+        $(this).parent().removeClass('current');
+      }
+    });
+  });
+%ul.my-select
+  %li
+    = link_to "TOP", tasks_path
+  %li
+    = link_to "MY PAGE", "/users/#{current_user.id}"
+  %li
+    = link_to "GROUPS", "#2"
+  %li
+    = link_to "LOGOUT",  logout_users_path

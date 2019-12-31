@@ -1,6 +1,3 @@
-// body {
-//   background-color: #dcdcdc;
-// }
 .sign-up-container {
   position: relative;
   height: 100%;
@@ -12,8 +9,7 @@
     &__box {
       background-color: whitesmoke;
       box-shadow: inset 0 0 15px 15px gray;
-      opacity: 0.8;
-      height: 700px;
+      opacity: 0.9;
       width: 650px;
       margin: 0 auto;
       .sign-up-font {
@@ -28,6 +24,44 @@
           margin: 0 auto;
           .form-group {
             margin-bottom: 30px;
+            .input-default-name {
+              margin-top: 10px;
+              width: 32%;
+              font-size: 16px;
+              border-radius: 4px;
+              padding: 10px 16px 8px;
+              height: 45px;
+              background-color: #b3ada0;
+            }
+            .input-default-another {
+              margin-top: 10px;
+              width: 80%;
+              font-size: 16px;
+              border-radius: 4px;
+              padding: 10px 16px 8px;
+              height: 45px;
+              background-color: #b3ada0;
+            }
+          }
+          .actions {
+            margin-top: 53px;
+            padding: 0 85px;
+            &-sign-up {
+              margin-right: 60px;
+              &-button {
+                background-color:#9d896c;
+                padding: 7px 14px;
+                font-weight: bold;
+                border: 2px solid  #544a47;
+                border-radius: 4px;
+                box-shadow: 0 0 14px rgba(0,0,0,.3);
+                &:hover {
+                  background-color: #544a47;
+                  border-color: #9d896c;
+                  color:#fff;
+                }
+              }
+            }
           }
         }
       }
