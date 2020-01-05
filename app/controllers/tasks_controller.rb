@@ -16,6 +16,11 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    if @task.save
+      redirect_to root_path, notice: "Added Task"
+    else
+      render :new
+    end
   end
 
   def change_status

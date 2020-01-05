@@ -11,10 +11,10 @@
   });
 %ul.my-select
   %li
-    = link_to "TOP", tasks_path
-  %li
     = link_to "MY PAGE", "/users/#{current_user.id}"
   %li
     = link_to "GROUPS", "#2"
+  %li
+    = link_to "CREATE TASK", new_task_path
   %li
     = link_to "LOGOUT",  logout_users_path

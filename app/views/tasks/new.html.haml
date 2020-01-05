@@ -1,1 +1,50 @@
-= render partial: "shared/header"
+.create-task-container
+  = render partial: "shared/myheader"
+  = render partial: "shared/myselect"
+  .create-task-body
+    .create-task-body__box
+      %h2.create-task-font  Create Task
+      = form_for(@task, html: {class: 'create-form'}) do |f|
+        .create-task-body__main
+          .create-task-body__main-form
+            .create-task__field
+              .create-task__field__label
+                Task Name
+              .create-task__field--required
+                Required
+              #task-error-name
+              .create-task__field__all
+                = f.text_field :name, class: "input-task-name",placeholder: "Task name (Max 30)", maxlength: "30"
+
+            .create-task__field
+              .create-task__field__label
+                Task Detail
+              .create-task__field--required
+                Required
+              #task-error-text
+              .create-task__field__all
+                = f.text_area :text, class: "input-task-text",placeholder: "Task Detail (Max 1500)", maxlength: "1500"
+
+            .create-task__field
+              .create-task__field__label
+                Limit Date
+              .create-task__field__all
+                = date_field_tag :limit_date, Date.today, use_month_numbers: true, class: "form-task-date"
+
+            .create-task__field
+              .create-task__field__label
+                Level
+              .create-task__field__all
+                = f.select :level, [["★",1],["★★",2],["★★★",3],["★★★★",4],["★★★★★",5],["★★★★★★",6],["★★★★★★★",7],["★★★★★★★★",8]],{}, {class: "input-task-level"}
+            .create-task__field
+              .create-task__field__label
+                Priority
+              .create-task__field__all
+                = f.select :priority, [["◎",1],["◎◎",2],["◎◎◎",3],["◎◎◎◎",4],["◎◎◎◎◎",5],["◎◎◎◎◎◎",6],["◎◎◎◎◎◎◎",7],["◎◎◎◎◎◎◎◎",8]],{}, {class: "input-task-priority"}
+            .create-task__field
+              .create-task__field__label
+                Genre
+              .create-task__field__all
+                = f.select :genre_id, [["====",1],["BUSINESS",2],["PRACTICE",3],["PLAY",4],["PROMISE",5],["TRAVEL",6],["WORK",7],["OTHER",8]],{}, {class: "input-task-genre"}
+            .create-task-submit
+              = f.submit "Add Task", class:"create-task-submit-btn"
