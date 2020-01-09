@@ -15,13 +15,16 @@ class TasksController < ApplicationController
   end
 
   def create
+
     @task = Task.new(task_params)
     if @task.save
       redirect_to root_path, notice: "Added Task"
     else
       render :new
     end
+
   end
+
 
   def change_status
     @task.change_status!
@@ -63,7 +66,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :text, :limit_date, :status, :level, :priority, :genre_id)
+      params.require(:task).permit(:name, :text, :limit_date, :status, :level, :priority, :genre_id).merge(user_id: current_user.id)
     end
 
     # def help_index

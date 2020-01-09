@@ -29,22 +29,21 @@
               .create-task__field__label
                 Limit Date
               .create-task__field__all
-                = date_field_tag :limit_date, Date.today, use_month_numbers: true, class: "form-task-date"
-
+                = f.date_select :limit_date, class:'form-task-date'
             .create-task__field
               .create-task__field__label
                 Level
               .create-task__field__all
-                = f.select :level, [["★",1],["★★",2],["★★★",3],["★★★★",4],["★★★★★",5],["★★★★★★",6],["★★★★★★★",7],["★★★★★★★★",8]],{}, {class: "input-task-level"}
+                = f.select :level, ["★","★★","★★★","★★★★","★★★★★","★★★★★★","★★★★★★★","★★★★★★★★"],{}, {class: "input-task-level"}
             .create-task__field
               .create-task__field__label
                 Priority
               .create-task__field__all
-                = f.select :priority, [["◎",1],["◎◎",2],["◎◎◎",3],["◎◎◎◎",4],["◎◎◎◎◎",5],["◎◎◎◎◎◎",6],["◎◎◎◎◎◎◎",7],["◎◎◎◎◎◎◎◎",8]],{}, {class: "input-task-priority"}
+                = f.select :priority, ["◎","◎◎","◎◎◎","◎◎◎◎","◎◎◎◎◎","◎◎◎◎◎◎","◎◎◎◎◎◎◎","◎◎◎◎◎◎◎◎"],{}, {class: "input-task-priority"}
             .create-task__field
               .create-task__field__label
                 Genre
               .create-task__field__all
-                = f.select :genre_id, [["====",1],["BUSINESS",2],["PRACTICE",3],["PLAY",4],["PROMISE",5],["TRAVEL",6],["WORK",7],["OTHER",8]],{}, {class: "input-task-genre"}
+                = f.select :genre_id, ["NOTHING","BUSINESS","PRACTICE","PLAY","PROMISE","TRAVEL","WORK","OTHER"],{}, {class: "input-task-genre"}
             .create-task-submit
               = f.submit "Add Task", class:"create-task-submit-btn"
