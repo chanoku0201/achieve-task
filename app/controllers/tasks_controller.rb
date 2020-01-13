@@ -3,10 +3,10 @@ class TasksController < ApplicationController
   before_action :task_set, only: [:show, :edit, :update, :destroy, :change_status, :change_completed]
 
   def index
-    # @todays_tasks
-    # @tommorows_tasks
-    @all_tasks = Task.all.where(user_id: current_user.id).order('limit_date').where.not(status:2).includes(:user, :genre).limit(7)
-    @complete_tasks = Task.all.where(user_id: current_user.id).where(status: 2).includes(:user, :genre).limit(7)
+    @todays_tasks = Task.all.where(user_id: current_user.id,).where("limit_date = ?", Date.today).where.not(status:2).includes(:user, :genre).limit(5)
+    @tomorrows_tasks = Task.all.where(user_id: current_user.id,).where("limit_date = ?", Date.tomorrow).where.not(status:2).includes(:user, :genre).limit(5)
+    @all_tasks = Task.all.where(user_id: current_user.id).order('limit_date').where.not(status:2).includes(:user, :genre).limit(5)
+    @complete_tasks = Task.all.where(user_id: current_user.id).where(status: 2).includes(:user, :genre).limit(5)
 
   end
 
@@ -28,13 +28,28 @@ class TasksController < ApplicationController
 
   def change_status
     @task.change_status!
-
-    redirect_to root_path, notice: 'successfully updated.'
+    redirect_to :back, notice: 'successfully updated.'
   end
 
   def change_completed
     @task.change_completed!
-    redirect_to root_path, notice: 'successfully updated.'
+    redirect_to :back, notice: 'successfully updated.'
+  end
+
+  def todays_task
+    @todays_task = Task.all.where(user_id: current_user.id,).where("limit_date = ?", Date.today).where.not(status:2).includes(:user, :genre).page(params[:page]).per(10)
+  end
+
+  def tomorrows_task
+    @tomorrows_task = Task.all.where(user_id: current_user.id,).where("limit_date = ?", Date.tomorrow).where.not(status:2).includes(:user, :genre).page(params[:page]).per(10)
+  end
+
+  def all_task
+    @all_task = Task.all.where(user_id: current_user.id).order('limit_date').where.not(status:2).includes(:user, :genre).page(params[:page]).per(10)
+  end
+
+  def complete_task
+    @complete_task = Task.all.where(user_id: current_user.id).where(status: 2).includes(:user, :genre).page(params[:page]).per(10)
   end
 
   def show
@@ -56,7 +71,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to root_path, notice: 'task deleted'
+    redirect_to :back, notice: 'task deleted'
   end
 
   private

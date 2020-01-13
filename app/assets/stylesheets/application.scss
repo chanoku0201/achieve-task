@@ -1,6 +1,10 @@
 @import "reset";
 @import "tasks";
 @import "tasks/new";
+@import "tasks/todays_task";
+@import "tasks/tomorrows_task";
+@import "tasks/all_task";
+@import "tasks/complete_task";
 @import "shared/myheader";
 @import "shared/header";
 @import "shared/footer";
@@ -8,6 +12,14 @@
 @import "shared/signselect";
 @import "shared/links";
 @import "shared/error_messages";
+@import "shared/moreselect";
+@import "kaminari/paginator";
+@import "kaminari/first_page";
+@import "kaminari/last_page";
+@import "kaminari/prev_page";
+@import "kaminari/next_page";
+@import "kaminari/gap";
+@import "kaminari/page";
 @import "users/new";
 @import "users/show";
 @import "users/logout";

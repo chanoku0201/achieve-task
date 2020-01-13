@@ -1,0 +1,31 @@
+.more-task-container
+  = render partial: 'shared/myheader'
+  = render partial: 'shared/moreselect'
+  .more-task-body
+    .more-task-body-box
+      .more-task-body-box__list
+        - @complete_task.each do |task|
+          .more-task-body-box__list__detail
+            = link_to "#", class: "task-show-path" do
+              .task-text
+                %h3.task-text-heading
+                  #{task.name}
+              .task-detail
+                .task-pict
+                  = image_tag 'task-image.jpeg', class: "task-pict-image"
+                .task-level
+                  %span.task-level-count
+                    #{task.level}
+                .task-priority
+                  %span.task-priority-count
+                    #{task.priority}
+                .task-category
+                  %span.task-category-count
+                    #{task.genre_id}
+                .task-limit
+                  %span.task-limit-count
+                    LIMIT #{task.limit_date}
+            .delete-button-nav
+              %button{class: "delete-open"}
+                = link_to "DELETE", task_path(task), class: "delete-open-task", style: "display: block", method: :delete
+      = paginate @complete_task

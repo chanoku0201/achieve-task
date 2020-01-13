@@ -1,4 +1,4 @@
-.my-select {
+.more-select {
   background-color: #2b2b2b;
   z-index: 1;
   position: sticky;
@@ -8,23 +8,23 @@
   text-transform: uppercase;
   font-weight: 500;
   border-width: 1px;
-  border-color: black;
+  border-color:#2b2b2b;
   border-style: solid;
   box-shadow: 10px 10px 8px 10px rgba(0, 0, 0, 0.5);
 }
-.my-select * {
+.more-select * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-.my-select li {
+.more-select li {
   display: inline-block;
   list-style: outside none none;
   margin: 0 2em;
   padding: 0;
 }
-.my-select a {
+.more-select a {
   display: inline-block;
   padding: 0.5em 17px;
   color: whitesmoke;
@@ -32,13 +32,13 @@
   letter-spacing: 1px;
   text-decoration: none;
 }
-.my-select a:before {
+.more-select a:before {
   left: 20%;
   right: 20%;
   top: 50%;
   content: '';
   border-left: 12px solid #c0a2c7;
-  border-right: 12px solid#c0a2c7;
+  border-right: 12px solid #c0a2c7;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   height: 3px;
@@ -47,12 +47,12 @@
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-.my-select a:hover,
-.my-select .current a {
+.more-select a:hover,
+.more-select .current a {
   color:#c0a2c7;
 }
-.my-select a:hover:before,
-.my-select .current a:before {
+.more-select a:hover:before,
+.more-select .current a:before {
   left: 0;
   right: 0;
   opacity: 1;

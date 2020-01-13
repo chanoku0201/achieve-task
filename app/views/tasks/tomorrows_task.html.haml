@@ -1,0 +1,37 @@
+.more-task-container
+  = render partial: 'shared/myheader'
+  = render partial: 'shared/moreselect'
+  .more-task-body
+    .more-task-body-box
+      .more-task-body-box__list
+        - @tomorrows_task.each do |task|
+          .more-task-body-box__list__detail
+            = link_to "#", class: "task-show-path" do
+              .task-text
+                %h3.task-text-heading
+                  #{task.name}
+              .task-detail
+                .task-pict
+                  = image_tag 'task-image.jpeg', class: "task-pict-image"
+                .task-level
+                  %span.task-level-count
+                    #{task.level}
+                .task-priority
+                  %span.task-priority-count
+                    #{task.priority}
+                .task-category
+                  %span.task-category-count
+                    #{task.genre_id}
+                .task-limit
+                  %span.task-limit-count
+                    LIMIT #{task.limit_date}
+            .task-enum-button
+              - if task.status == "START"
+                %button{class:"start-open", id: "start-open"}
+                  = link_to task.status, task_change_status_path(task), class: "start-open-button", id: "start-doing", style:"display: block", method: :patch
+              - else
+                %button{class:"start-open", id: "start-open"}
+                  = link_to task.status, task_change_status_path(task), class: "doing-open-button", id: "start-doing", style:"display: block", method: :patch
+              %button{class:"complete-open"}
+                = link_to 'COMPLETE', task_change_completed_path(task), class: "complete-open-button ", style:"display: block", method: :patch
+      = paginate @tomorrows_task

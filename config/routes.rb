@@ -12,5 +12,11 @@ Rails.application.routes.draw do
   resources :tasks do
     patch :change_status
     patch :change_completed
+    collection do
+      get 'todays_task'
+      get 'tomorrows_task'
+      get 'all_task'
+      get 'complete_task'
+    end
   end
 end

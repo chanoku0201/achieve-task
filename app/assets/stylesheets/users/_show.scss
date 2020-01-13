@@ -13,6 +13,8 @@
       width: 650px;
       margin: 0 auto;
       &__image {
+        background-image: image-url("mypage-back.jpg");
+        background-size: cover;
         padding-top: 40px;
         &__block {
           height: 150px;
