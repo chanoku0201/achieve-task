@@ -1,0 +1,54 @@
+.show-task-container
+  = render partial: 'shared/myheader'
+  - if @task.status == "COMPLETED"
+    %ul.show-select
+      %li
+        = link_to "RETURN", task_change_status_path(@task), class: "show-select-a",method: :patch
+      %li
+        = link_to "Already Completed", "#", class: "show-select-a-doing"
+      %li
+        = link_to "DELETE",task_path(@task), class: "show-select-a",method: :delete
+  -else
+    %ul.show-select
+      %li
+        = link_to "EDIT", edit_task_path, class:"show-select-a"
+      - if @task.status == "DOING"
+        %li
+          = link_to @task.status, task_change_status_path(@task), class: "show-select-a-doing", method: :patch
+      - elsif @task.status == "START"
+        %li
+          = link_to @task.status, task_change_status_path(@task), class: "show-select-a", method: :patch
+      %li
+        = link_to 'COMPLETE', task_change_completed_path(@task), class: "show-select-a", method: :patch
+  .show-task-body
+    .show-task-body-box
+      %h2.show-task-name
+        #{@task.name}
+      .show-task-main
+        .show-task-main-box
+          .show-task-main-box__label
+            Task Detail
+          .show-task-main-box__all
+            .show-task-main-box__all__text
+              #{@task.text}
+          .show-task-main-box__label
+            Limt Date
+          .show-task-main-box__all
+            .show-task-main-box__all__limit
+              #{@task.limit_date}
+          .show-task-main-box__label
+            Level
+          .show-task-main-box__all
+            .show-task-main-box__all__level
+              #{@task.level}
+          .show-task-main-box__label
+            Priority
+          .show-task-main-box__all
+            .show-task-main-box__all__priority
+              #{@task.priority}
+          .show-task-main-box__label
+            Genre
+          .show-task-main-box__all
+            .show-task-main-box__all__genre
+              #{@task.genre_id}
+

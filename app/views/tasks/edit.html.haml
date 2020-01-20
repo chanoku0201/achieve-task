@@ -1,10 +1,12 @@
-.create-task-container
-  = render partial: "shared/myheader"
-  = render partial: "shared/myselect"
-  .create-task-body
-    .create-task-body__box
-      %h2.create-task-font
-        Create Task
+.edit-task-container
+  = render partial: 'shared/myheader'
+  %ul.edit-select
+    %li
+      = link_to "RETURN", "/tasks/#{@task.id}"
+  .edit-task-body
+    .edit-task-body__box
+      %h2.edit-task-font
+        Edit Task
       = form_for(@task, html: {class: 'create-form'}) do |f|
         .create-task-body__main
           .create-task-body__main-form
@@ -13,7 +15,6 @@
                 Task Name
               .create-task__field--required
                 Required
-              #task-error-name
               .create-task__field__all
                 = f.text_field :name, class: "input-task-name",placeholder: "Task name (Max 30)", maxlength: "30"
 
@@ -22,7 +23,6 @@
                 Task Detail
               .create-task__field--required
                 Required
-              #task-error-text
               .create-task__field__all
                 = f.text_area :text, class: "input-task-text",placeholder: "Task Detail (Max 1500)", maxlength: "1500"
 
@@ -47,4 +47,4 @@
               .create-task__field__all
                 = f.select :genre_id, ["NOTHING","BUSINESS","PRACTICE","PLAY","PROMISE","TRAVEL","WORK","OTHER"],{}, {class: "input-task-genre"}
             .create-task-submit
-              = f.submit "Add Task", class:"create-task-submit-btn"
+              = f.submit "Update", class:"create-task-submit-btn"

@@ -1,10 +1,14 @@
 @import "reset";
+@import "config/colors";
+@import "modules/flash";
 @import "tasks";
 @import "tasks/new";
 @import "tasks/todays_task";
 @import "tasks/tomorrows_task";
 @import "tasks/all_task";
 @import "tasks/complete_task";
+@import "tasks/show";
+@import "tasks/edit";
 @import "shared/myheader";
 @import "shared/header";
 @import "shared/footer";
@@ -22,5 +26,7 @@
 @import "kaminari/page";
 @import "users/new";
 @import "users/show";
+@import "users/edit";
 @import "users/logout";
 @import "sessions/new";
+@import "bootstrap";

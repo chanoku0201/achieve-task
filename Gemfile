@@ -59,3 +59,4 @@ gem 'pry-rails'
 gem "font-awesome-rails"
 gem "bulma-rails", "~> 0.8.0"
 gem 'devise'
+gem 'bootstrap', '~> 4.1.1'

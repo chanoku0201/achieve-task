@@ -13,7 +13,9 @@
   %li
     = link_to "MY PAGE", "/users/#{current_user.id}"
   %li
-    = link_to "GROUPS", "#2"
+    = link_to "EDIT PROFILE", edit_user_path(current_user.id)
+  %li
+    = link_to "EMAIL PASSWORD", edit_user_registration_path
   %li
     = link_to "CREATE TASK", new_task_path
   %li

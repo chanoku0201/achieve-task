@@ -1,4 +1,5 @@
 .more-task-container{
+  @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
   .more-task-body {
     display: block;
     background-image: image-url("footer-image-new.jpg");
@@ -25,9 +26,15 @@
           justify-content: space-between;
           .task-show-path {
             text-decoration: none;
+            &:hover {
+              opacity: 0.6;
+            }
             .task-text {
               &-heading {
-                font-size: 15px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                font-size: 13px;
                 margin-bottom: 15px;
                 border-bottom: 1.6px solid;
                 border-image: linear-gradient(to right, #6e7955 0%, #9d5b8b 100%);

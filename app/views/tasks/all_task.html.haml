@@ -6,13 +6,38 @@
       .more-task-body-box__list
         - @all_task.each do |task|
           .more-task-body-box__list__detail
-            = link_to "#", class: "task-show-path" do
+            = link_to "/tasks/#{task.id}", class: "task-show-path" do
               .task-text
                 %h3.task-text-heading
                   #{task.name}
               .task-detail
-                .task-pict
-                  = image_tag 'task-image.jpeg', class: "task-pict-image"
+                - if task.genre_id == "NOTHING"
+                  .task-pict
+                    = image_tag 'task-image-nothing.png', class: "task-pict-image"
+                - elsif task.genre_id == "STUDY"
+                  .task-pict
+                    = image_tag 'task-image-study.jpg', class: "task-pict-image"
+                - elsif task.genre_id == "BUSINESS"
+                  .task-pict
+                    = image_tag 'task-image-business.jpg', class: "task-pict-image"
+                - elsif task.genre_id == "PRACTICE"
+                  .task-pict
+                    = image_tag 'task-image-practice.jpeg', class: "task-pict-image"
+                - elsif task.genre_id == "PLAY"
+                  .task-pict
+                    = image_tag 'task-image-play.jpg', class: "task-pict-image"
+                - elsif task.genre_id == "PROMISE"
+                  .task-pict
+                    = image_tag 'task-image-promise.jpeg', class: "task-pict-image"
+                - elsif task.genre_id == "TRAVEL"
+                  .task-pict
+                    = image_tag 'task-image-travel.jpg', class: "task-pict-image"
+                - elsif task.genre_id == "WORK"
+                  .task-pict
+                    = image_tag 'task-image-work.jpeg', class: "task-pict-image"
+                - elsif task.genre_id == "OTHER"
+                  .task-pict
+                    = image_tag 'task-image-other.jpeg', class: "task-pict-image"
                 .task-level
                   %span.task-level-count
                     #{task.level}
@@ -34,4 +59,5 @@
                   = link_to task.status, task_change_status_path(task), class: "doing-open-button", id: "start-doing", style:"display: block", method: :patch
               %button{class:"complete-open"}
                 = link_to 'COMPLETE', task_change_completed_path(task), class: "complete-open-button ", style:"display: block", method: :patch
-      = paginate @all_task
+      .page-class
+        = paginate @all_task

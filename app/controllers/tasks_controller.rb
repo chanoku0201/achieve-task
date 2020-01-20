@@ -18,7 +18,7 @@ class TasksController < ApplicationController
 
     @task = Task.new(task_params)
     if @task.save
-      redirect_to root_path, notice: "Added Task"
+      redirect_to root_path, notice: 'Task was succesfully added!'
     else
       render :new
     end
@@ -28,12 +28,12 @@ class TasksController < ApplicationController
 
   def change_status
     @task.change_status!
-    redirect_to :back, notice: 'successfully updated.'
+    redirect_to :back, notice: 'successfully changed.'
   end
 
   def change_completed
     @task.change_completed!
-    redirect_to :back, notice: 'successfully updated.'
+    redirect_to :back, notice: 'This task was completed.'
   end
 
   def todays_task
@@ -57,10 +57,15 @@ class TasksController < ApplicationController
   end
 
   def edit
-
+    @task = Task.find(params[:id])
   end
 
   def update
+    if @task.update(task_params)
+      redirect_to "/tasks/#{@task.id}", notice: 'Task was updated!'
+    else
+      rendr :edit
+    end
     @status = params[:status]
     respond_to do |format|
       format.html
@@ -71,7 +76,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to :back, notice: 'task deleted'
+    redirect_to :back, notice: 'Task was deleted'
   end
 
   private

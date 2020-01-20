@@ -22,13 +22,38 @@
 
       - @todays_tasks.each do |task|
         .box
-          = link_to "#", class: "tasks-show-link" do
+          = link_to "/tasks/#{task.id}", class: "tasks-show-link" do
             .text
               %h3.heading
                 #{task.name}
             .tasks-detail
-              .pict
-                = image_tag 'task-image.jpeg', class: "task-image"
+              - if task.genre_id == "NOTHING"
+                .pict
+                  = image_tag 'task-image-nothing.png', class: "task-image"
+              - elsif task.genre_id == "STUDY"
+                .pict
+                  = image_tag 'task-image-study.jpg', class: "task-image"
+              - elsif task.genre_id == "BUSINESS"
+                .pict
+                  = image_tag 'task-image-business.jpg', class: "task-image"
+              - elsif task.genre_id == "PRACTICE"
+                .pict
+                  = image_tag 'task-image-practice.jpeg', class: "task-image"
+              - elsif task.genre_id == "PLAY"
+                .pict
+                  = image_tag 'task-image-play.jpg', class: "task-image"
+              - elsif task.genre_id == "PROMISE"
+                .pict
+                  = image_tag 'task-image-promise.jpeg', class: "task-image"
+              - elsif task.genre_id == "TRAVEL"
+                .pict
+                  = image_tag 'task-image-travel.jpg', class: "task-image"
+              - elsif task.genre_id == "WORK"
+                .pict
+                  = image_tag 'task-image-work.jpeg', class: "task-image"
+              - elsif task.genre_id == "OTHER"
+                .pict
+                  = image_tag 'task-image-other.jpeg', class: "task-image"
               .tasks-level
                 %span.tasks-level-count
                   #{task.level}
@@ -60,13 +85,38 @@
 
       - @tomorrows_tasks.each do |task|
         .box
-          = link_to "#", class: "tasks-show-link" do
+          = link_to "/tasks/#{task.id}", class: "tasks-show-link" do
             .text
               %h3.heading
                 #{task.name}
             .tasks-detail
-              .pict
-                = image_tag 'task-image.jpeg', class: "task-image"
+              - if task.genre_id == "NOTHING"
+                .pict
+                  = image_tag 'task-image-nothing.png', class: "task-image"
+              - elsif task.genre_id == "STUDY"
+                .pict
+                  = image_tag 'task-image-study.jpg', class: "task-image"
+              - elsif task.genre_id == "BUSINESS"
+                .pict
+                  = image_tag 'task-image-business.jpg', class: "task-image"
+              - elsif task.genre_id == "PRACTICE"
+                .pict
+                  = image_tag 'task-image-practice.jpeg', class: "task-image"
+              - elsif task.genre_id == "PLAY"
+                .pict
+                  = image_tag 'task-image-play.jpg', class: "task-image"
+              - elsif task.genre_id == "PROMISE"
+                .pict
+                  = image_tag 'task-image-promise.jpeg', class: "task-image"
+              - elsif task.genre_id == "TRAVEL"
+                .pict
+                  = image_tag 'task-image-travel.jpg', class: "task-image"
+              - elsif task.genre_id == "WORK"
+                .pict
+                  = image_tag 'task-image-work.jpeg', class: "task-image"
+              - elsif task.genre_id == "OTHER"
+                .pict
+                  = image_tag 'task-image-other.jpeg', class: "task-image"
               .tasks-level
                 %span.tasks-level-count
                   #{task.level}
@@ -98,13 +148,38 @@
 
       - @all_tasks.each do |task|
         .box
-          = link_to "#", class: "tasks-show-link" do
+          = link_to "/tasks/#{task.id}", class: "tasks-show-link" do
             .text
               %h3.heading
                 #{task.name}
             .tasks-detail
-              .pict
-                = image_tag 'task-image.jpeg', class: "task-image"
+              - if task.genre_id == "NOTHING"
+                .pict
+                  = image_tag 'task-image-nothing.png', class: "task-image"
+              - elsif task.genre_id == "STUDY"
+                .pict
+                  = image_tag 'task-image-study.jpg', class: "task-image"
+              - elsif task.genre_id == "BUSINESS"
+                .pict
+                  = image_tag 'task-image-business.jpg', class: "task-image"
+              - elsif task.genre_id == "PRACTICE"
+                .pict
+                  = image_tag 'task-image-practice.jpeg', class: "task-image"
+              - elsif task.genre_id == "PLAY"
+                .pict
+                  = image_tag 'task-image-play.jpg', class: "task-image"
+              - elsif task.genre_id == "PROMISE"
+                .pict
+                  = image_tag 'task-image-promise.jpeg', class: "task-image"
+              - elsif task.genre_id == "TRAVEL"
+                .pict
+                  = image_tag 'task-image-travel.jpg', class: "task-image"
+              - elsif task.genre_id == "WORK"
+                .pict
+                  = image_tag 'task-image-work.jpeg', class: "task-image"
+              - elsif task.genre_id == "OTHER"
+                .pict
+                  = image_tag 'task-image-other.jpeg', class: "task-image"
               .tasks-level
                 %span.tasks-level-count
                   #{task.level}
@@ -134,12 +209,37 @@
 
       - @complete_tasks.each do |task|
         .box
-          = link_to "#", class: "tasks-show-link" do
+          = link_to "/tasks/#{task.id}", class: "tasks-show-link" do
             .text
               %h3.heading #{task.name}
             .tasks-detail
-              .pict
-                = image_tag 'task-image.jpeg', class: "task-image"
+              - if task.genre_id == "NOTHING"
+                .pict
+                  = image_tag 'task-image-nothing.png', class: "task-image"
+              - elsif task.genre_id == "STUDY"
+                .pict
+                  = image_tag 'task-image-study.jpg', class: "task-image"
+              - elsif task.genre_id == "BUSINESS"
+                .pict
+                  = image_tag 'task-image-business.jpg', class: "task-image"
+              - elsif task.genre_id == "PRACTICE"
+                .pict
+                  = image_tag 'task-image-practice.jpeg', class: "task-image"
+              - elsif task.genre_id == "PLAY"
+                .pict
+                  = image_tag 'task-image-play.jpg', class: "task-image"
+              - elsif task.genre_id == "PROMISE"
+                .pict
+                  = image_tag 'task-image-promise.jpeg', class: "task-image"
+              - elsif task.genre_id == "TRAVEL"
+                .pict
+                  = image_tag 'task-image-travel.jpg', class: "task-image"
+              - elsif task.genre_id == "WORK"
+                .pict
+                  = image_tag 'task-image-work.jpeg', class: "task-image"
+              - elsif task.genre_id == "OTHER"
+                .pict
+                  = image_tag 'task-image-other.jpeg', class: "task-image"
               .tasks-level
                 %span.tasks-level-count
                   #{task.level}

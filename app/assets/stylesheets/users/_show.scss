@@ -42,6 +42,16 @@
           text-align: center;
           margin: 10px 8px;
         }
+        .progress {
+          margin: 10px 8px;
+          background-color: #a3a3a2;
+          &-bar {
+            background-color: #a22041;
+            span {
+
+            }
+          }
+        }
       }
     }
   }
