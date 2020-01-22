@@ -13,7 +13,8 @@
                 Task Name
               .create-task__field--required
                 Required
-              #task-error-name
+              - if @task.errors.any?
+                %p name is required
               .create-task__field__all
                 = f.text_field :name, class: "input-task-name",placeholder: "Task name (Max 30)", maxlength: "30"
 
@@ -22,7 +23,8 @@
                 Task Detail
               .create-task__field--required
                 Required
-              #task-error-text
+              - if @task.errors.any?
+                %p detail is required
               .create-task__field__all
                 = f.text_area :text, class: "input-task-text",placeholder: "Task Detail (Max 1500)", maxlength: "1500"
 

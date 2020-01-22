@@ -1,6 +1,6 @@
-.edit-profile-container {
+.edit-pass-container {
   @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
-  .edit-profile-body {
+  &__body {
     display: block;
     background-image: image-url("footer-image-new.jpg");
     background-position: center;
@@ -8,15 +8,15 @@
     &__box {
       background-color: whitesmoke;
       box-shadow: inset 0 0 15px 15px gray;
-      opacity: 0.95;
-      height: 700px;
+      opacity: 0.9;
       width: 650px;
+      height: 1000px;
       margin: 0 auto;
-      .edit-profile-font {
+      .edit-pass-font {
         text-align: center;
         padding: 30px;
         margin-bottom: 15px;
-        border-bottom: 1.5px solid #f08300;
+        border-bottom: 1.5px solid #0f2350;
       }
     }
   }

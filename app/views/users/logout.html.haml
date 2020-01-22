@@ -3,6 +3,7 @@
   = render partial: 'shared/myselect'
   .logout-body
     .logout-body__box
+      %h2.logout-font Logout
       .logout-nav
         %button{class: "logout-button"}
           = link_to "LOGOUT", destroy_user_session_path, class: "logout-button-link", style: "display: block", method: :delete
