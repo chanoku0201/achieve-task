@@ -5,7 +5,10 @@
     .mypage-body__box
       .mypage-body__box__image
         .mypage-body__box__image__block
-          = image_tag 'defoult-icon.jpg', alt: '', height: '150px', width: '150px', class: 'mypage-body__box__image__block__icon'
+          - if current_user.image?
+            = image_tag current_user.image.url, height: '150px', width: '150px', class: "mypage-body__box__image__block__icon"
+          - else
+            = image_tag 'defoult-icon.jpg', height: '150px', width: '150px', class: 'mypage-body__box__image__block__icon'
         %h2.my-nickname
           #{current_user.nickname}
         %h3.my-lank

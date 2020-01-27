@@ -9,7 +9,7 @@
       background-color: whitesmoke;
       box-shadow: inset 0 0 15px 15px gray;
       opacity: 0.95;
-      height: 700px;
+      // height: 680px;
       width: 650px;
       margin: 0 auto;
       .edit-profile-font {
@@ -17,6 +17,66 @@
         padding: 30px;
         margin-bottom: 15px;
         border-bottom: 1.5px solid #f08300;
+      }
+      .edit_user {
+        padding: 50px 100px;
+        &-main {
+          margin: 0 auto;
+          &-image {
+            border-radius: 50%;
+            margin: 0 auto;
+            height: 150px;
+            width: 150px;
+            .profile-icon {
+              background-size: cover;
+              position: relative;
+              cursor: pointer;
+              border-radius: 50%;
+              &:hover {
+                border: 1.5px solid #a99e93;
+              }
+            }
+            .input-image {
+              display: contents;
+              border-radius: 50%;
+            }
+          }
+          &-group {
+            margin-right: 150px;
+            margin-left: 150px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            .input-edit-name {
+              margin-top: 10px;
+              width: 150px;
+              font-size: 16px;
+              border-radius: 4px;
+              padding: 10px 16px 8px;
+              height: 45px;
+              background-color: #b3ada0;
+            }
+          }
+          &-action {
+            margin: 0 auto;
+            width: 100px;
+            padding-top: 50px;
+            &-btn {
+              text-align: center;
+              background-color: #bb5548;
+              color: whitesmoke;
+              font-size: 25px;
+              padding: 10px 12px;
+              border-radius: 5px;
+              -webkit-transition: .4s;
+              transition: .4s;
+              &:hover {
+                background-color: whitesmoke;
+                border:1px solid #bb5548;
+                color: #bb5548;
+              }
+            }
+          }
+        }
       }
     }
   }

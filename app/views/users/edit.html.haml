@@ -5,3 +5,20 @@
     .edit-profile-body__box
       %h2.edit-profile-font
         Edit Profile
+      = form_for @user do |f|
+        .edit_user-main
+          .edit_user-main-image
+            - if @user.image?
+              = f.label :image do
+                = image_tag current_user.image.url, width:"150px", height:"150px", class: "profile-icon"
+                = f.file_field :image ,class:"input-image"
+            - else
+              = f.label :image do
+                = image_tag("defoult-icon.jpg", width:"150px", height:"150px", class: "profile-icon")
+                = f.file_field :image ,class:"input-image"
+          .edit_user-main-group
+            = f.label :nickname
+            %br/
+            = f.text_field :nickname, autofocus: true, maxlength: "10", placeholder: "max10", class: "input-edit-name"
+          .edit_user-main-action
+            = f.submit "Update", class:"edit_user-main-action-btn"
