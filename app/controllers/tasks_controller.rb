@@ -3,6 +3,9 @@ class TasksController < ApplicationController
   before_action :task_set, only: [:show, :edit, :update, :destroy, :change_status, :change_completed]
 
   def index
+    # @search = Task.ransack(params[:search])
+    # @tasks = @search.result(distinct: true)
+
     @todays_tasks = Task.all.where(user_id: current_user.id,).where("limit_date = ?", Date.today).where.not(status:2).includes(:user, :genre).limit(5)
     @tomorrows_tasks = Task.all.where(user_id: current_user.id,).where("limit_date = ?", Date.tomorrow).where.not(status:2).includes(:user, :genre).limit(5)
     @all_tasks = Task.all.where(user_id: current_user.id).order('limit_date').where.not(status:2).includes(:user, :genre).limit(5)
@@ -79,6 +82,13 @@ class TasksController < ApplicationController
     redirect_to root_path, notice: 'Task was deleted'
   end
 
+  def search
+    @search_tasks = Task.where('name LIKE(?)', "%#{params[:name]}%").page(params[:page]).per(10).order("created_at DESC")
+    @search_name = params[:name]
+    # @search = Task.ransack(search_params)
+    # @tasks = @search.result(distinct: true)
+  end
+
   private
 
     def task_set
@@ -89,7 +99,12 @@ class TasksController < ApplicationController
       params.require(:task).permit(:name, :text, :limit_date, :status, :level, :priority, :genre_id).merge(user_id: current_user.id)
     end
 
+    # def search_params
+    #   params.require(:search).permit!
+    # end
+
     # def help_index
     #   redirect_to action: :index unless user_signed_in?
     # end
+
 end

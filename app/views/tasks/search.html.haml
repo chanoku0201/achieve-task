@@ -1,0 +1,68 @@
+.search-task-container
+  = render partial: 'shared/myheader'
+  .search-word-header
+    = link_to "Search results for  ⇨ #{@search_name}", "#", class: "search-word-header-key"
+
+  .tasks-body
+    .various-tasks
+      - @search_tasks.each do |task|
+        .box
+          = link_to "/tasks/#{task.id}", class: "tasks-show-link" do
+            .text
+              %h3.heading
+                #{task.name}
+            .tasks-detail
+              - if task.genre_id == "NOTHING"
+                .pict
+                  = image_tag 'task-image-nothing.png', class: "task-image"
+              - elsif task.genre_id == "STUDY"
+                .pict
+                  = image_tag 'task-image-study.jpg', class: "task-image"
+              - elsif task.genre_id == "BUSINESS"
+                .pict
+                  = image_tag 'task-image-business.jpg', class: "task-image"
+              - elsif task.genre_id == "PRACTICE"
+                .pict
+                  = image_tag 'task-image-practice.jpeg', class: "task-image"
+              - elsif task.genre_id == "PLAY"
+                .pict
+                  = image_tag 'task-image-play.jpg', class: "task-image"
+              - elsif task.genre_id == "PROMISE"
+                .pict
+                  = image_tag 'task-image-promise.jpeg', class: "task-image"
+              - elsif task.genre_id == "TRAVEL"
+                .pict
+                  = image_tag 'task-image-travel.jpg', class: "task-image"
+              - elsif task.genre_id == "WORK"
+                .pict
+                  = image_tag 'task-image-work.jpeg', class: "task-image"
+              - elsif task.genre_id == "OTHER"
+                .pict
+                  = image_tag 'task-image-other.jpeg', class: "task-image"
+              .tasks-level
+                %span.tasks-level-count
+                  #{task.level}
+              .tasks-priority
+                %span.tasks-priority-count
+                  #{task.priority}
+              .tasks-category
+                %span.tasks-category-count
+                  #{task.genre_id}
+              .tasks-limit
+                %span.tasks-limit-count
+                  LIMIT #{task.limit_date}
+          .button-nav
+            - if task.status == "COMPLETED"
+              %button{class: "delete"}
+                = link_to "DELETE", task_path(task), class: "delete-task", style: "display: block", method: :delete
+            - else
+              - if task.status == "START"
+                %button{class:"start", id: "start"}
+                  = link_to task.status, task_change_status_path(task), class: "start-open-button", id: "start-doing", style:"display: block", method: :patch
+              - else
+                %button{class:"start", id: "start"}
+                  = link_to task.status, task_change_status_path(task), class: "doing-open-button", id: "start-doing", style:"display: block", method: :patch
+              %button{class:"complete"}
+                = link_to 'COMPLETE', task_change_completed_path(task), class: "complete-button ", style:"display: block", method: :patch
+    = paginate @search_tasks
+  = render partial: "shared/footer"

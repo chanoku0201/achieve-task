@@ -1,3 +1,7 @@
+:javascript
+  $(function(){
+    $('#answer_progress').width(gon.answer_valuenow + '%');
+  });
 .mypage-container
   = render partial: 'shared/myheader'
   = render partial: 'shared/myselect'
@@ -16,4 +20,4 @@
         .progress
           .progress-bar{aria: {valuemax: "100", valuemin: "0", valuenow: "60"}, role: "progressbar", style: "width: 60%;"}
             %span.sr-only 60% Complete
-
+-# インスタンス変数にする

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'tomorrows_task'
       get 'all_task'
       get 'complete_task'
+      get 'search'
     end
   end
 end

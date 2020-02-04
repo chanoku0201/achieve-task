@@ -10,13 +10,64 @@
       box-shadow: inset 0 0 15px 15px gray;
       opacity: 0.9;
       width: 650px;
-      height: 1000px;
       margin: 0 auto;
       .edit-pass-font {
         text-align: center;
         padding: 30px;
         margin-bottom: 15px;
         border-bottom: 1.5px solid #0f2350;
+      }
+      .edit-pass {
+        padding: 50px 100px;
+        .edit-pass-main {
+          margin: 0 auto;
+          &-group {
+            margin-bottom: 30px;
+            &-input {
+              background: #b3ada0;
+              margin-top: 10px;
+              width: 50%;
+              font-size: 16px;
+              border-radius: 4px;
+              padding: 10px 16px 8px;
+              height: 45px;
+            }
+          }
+          &-group-actions {
+            margin: 0 auto;
+            width: 100px;
+            padding-top: 50px;
+            &-btn {
+              text-align: center;
+              background-color:#a73836;
+              color: whitesmoke;
+              font-size: 25px;
+              padding: 10px 12px;
+              border-radius: 5px;
+              -webkit-transition: .4s;
+              transition: .4s;
+              &:hover {
+                background-color: whitesmoke;
+                border:1px solid #a73836;
+                color: #a73836;
+              }
+            }
+          }
+          .cancel {
+            margin-top: 30px;
+            text-align: center;
+          }
+          .unhappy {
+            text-align: center;
+          }
+          .back-btn {
+            text-decoration: none;
+            margin-left: 201px;
+            margin-right:201px;
+            text-align: center;
+            font-size: 22px;
+          }
+        }
       }
     }
   }

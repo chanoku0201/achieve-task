@@ -61,3 +61,5 @@ gem "bulma-rails", "~> 0.8.0"
 gem 'devise'
 gem 'bootstrap', '~> 4.1.1'
 gem 'carrierwave'
+gem 'gon'
+gem 'ransack'
